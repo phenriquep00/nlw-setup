@@ -38,10 +38,10 @@ model HabitWeekDays {
 model Day {
   id        String     @id @default(uuid())
   date      DateTime
-  dayhabits DayHabit[]
+  dayHabits DayHabit[]
 
   @@unique([date])
-  @@map("days")
+  @@map("day")
 }
 
 model DayHabit {
