@@ -12,8 +12,8 @@ export function Header() {
 
       <Dialog.Root>
         <Dialog.Trigger
-          className="flex items-center gap-3 border border-violet-500
-          font-semibold rounded-lg px-6 py-4 hover:border-violet-300"
+          className="flex transition-colors duration-300 items-center gap-3 border border-violet-500
+          font-semibold rounded-lg px-6 py-4 hover:border-violet-300 focus:outline-none focus:ring-2 focus:ring-violet-900 ring-offset-2 ring-offset-background"
           type="button"
         >
           <Plus size={20} className="text-violet-500" />
@@ -24,7 +24,7 @@ export function Header() {
           <Dialog.Overlay className="w-screen h-screen bg-black/80 position fixed inset-0" />
 
           <Dialog.Content className="absolute p-10 bg-zinc-900 rounded-2xl w-full max-w-md top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-            <Dialog.Close className="absolute right-6 top-6 text-zinc-400 hover:text-zinc-200">
+            <Dialog.Close className="absolute right-6 top-6 text-zinc-400 rounded-lg hover:text-zinc-200 focus:outline-none focus:ring-2 focus:ring-violet-900 ring-offset-2 ring-offset-background">
               <X size={24} aria-label="close" />
             </Dialog.Close>
 
