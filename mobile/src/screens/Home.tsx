@@ -1,6 +1,6 @@
 import { View, Text, ScrollView, Alert } from "react-native";
-import { useState, useEffect } from "react";
-import { useNavigation } from "@react-navigation/native";
+import { useState, useCallback } from "react";
+import { useNavigation, useFocusEffect } from "@react-navigation/native";
 
 import { api } from "../lib/axios";
 import { generateRangeDatesFromYearStart } from "../utils/generate-range-between-dates";
@@ -17,12 +17,12 @@ const datesFromYearStart = generateRangeDatesFromYearStart();
 const minimumSummaryDatesSize = 18 * 5;
 const amountOfDaysToFill = minimumSummaryDatesSize - datesFromYearStart.length;
 
-type TSummary = Array  <{
+type TSummary = Array<{
   id: string;
   date: string;
   amount: number;
-  completed: number
-}>
+  completed: number;
+}>;
 
 export function Home() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -42,9 +42,11 @@ export function Home() {
     }
   }
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  useFocusEffect(
+    useCallback(() => {
+      fetchData();
+    }, [])
+  );
 
   if (loading) {
     return <Loading />;
